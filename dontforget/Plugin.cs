@@ -1,7 +1,6 @@
 using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game;
@@ -9,7 +8,7 @@ using Dalamud.Game.ClientState.Conditions;
 using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 
-namespace dontforgetthecard
+namespace dontforget
 {
     public sealed class Plugin : IDalamudPlugin
     {
@@ -24,7 +23,7 @@ namespace dontforgetthecard
         private uint drawCard = 3590;
         private uint summonFairy = 17215;
         private uint summonCarbuncle = 25798;
-        private uint peleton = 7557;
+        private uint peloton = 7557;
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
@@ -43,10 +42,9 @@ namespace dontforgetthecard
             {
                 HelpMessage = "Open the config window"
             });
-            unsafe
-            {
-                LoadUnsafe();
-            }
+
+            unsafe { LoadUnsafe(); }
+
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             Service.DutyState.DutyStarted += onDuty;
@@ -66,12 +64,10 @@ namespace dontforgetthecard
 
             if (Service.ClientState == null || Service.ClientState.LocalPlayer == null || !Service.ClientState.IsLoggedIn) return;
 
-
             var classJobID = Service.ClientState.LocalPlayer.ClassJob.Id;
 
             if (classJobID == 33 && this.Configuration.Astrologian)
             {
-
                 actionID = drawCard;
                 actionPerformed = AM->UseAction(ActionType.Action, actionID);
             }
@@ -93,12 +89,12 @@ namespace dontforgetthecard
         {
             if (Service.ClientState == null || Service.ClientState.LocalPlayer == null || !Service.ClientState.IsLoggedIn || Service.Condition[ConditionFlag.InCombat]) return;
 
-            var isPeletonReady = AM->GetActionStatus(ActionType.Action, peleton) == 0;
-            var hasPeletonBuff = Service.ClientState.LocalPlayer.StatusList.Any(x => x.StatusId == 1199 || x.StatusId == 50);
+            var isPelotonReady = AM->GetActionStatus(ActionType.Action, peloton) == 0;
+            var hasPelotonBuff = Service.ClientState.LocalPlayer.StatusList.Any(x => x.StatusId == 1199 || x.StatusId == 50);
 
-            if (this.Configuration.Peleton && isPeletonReady && !hasPeletonBuff && AgentMap.Instance()->IsPlayerMoving == 1)
+            if (this.Configuration.Peloton && isPelotonReady && !hasPelotonBuff && AgentMap.Instance()->IsPlayerMoving == 1)
             {
-                AM->UseAction(ActionType.Action, peleton);
+                AM->UseAction(ActionType.Action, peloton);
             }
         }
 

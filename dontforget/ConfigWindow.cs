@@ -1,10 +1,9 @@
 using System;
 using System.Numerics;
 using Dalamud.Interface.Windowing;
-using Dalamud.Utility;
 using ImGuiNET;
 
-namespace dontforgetthecard;
+namespace dontforget;
 
 public class ConfigWindow : Window, IDisposable
 {
@@ -26,7 +25,7 @@ public class ConfigWindow : Window, IDisposable
         var astrologianConfig = this.Configuration.Astrologian;
         var scholarConfig = this.Configuration.Scholar;
         var summonerConfig = this.Configuration.Summoner;
-        var peletonConfig = this.Configuration.Peleton;
+        var pelotonConfig = this.Configuration.Peloton;
 
         ImGui.TextWrapped("Enable for jobs you don't want to forget");
         ImGui.Spacing();
@@ -37,9 +36,9 @@ public class ConfigWindow : Window, IDisposable
             this.Configuration.Save();
         }
 
-        if (ImGui.Checkbox("Phys Ranged - Auto Peleton", ref peletonConfig))
+        if (ImGui.Checkbox("Phys Ranged - Auto Peloton", ref pelotonConfig))
         {
-            this.Configuration.Peleton = peletonConfig;
+            this.Configuration.Peloton = pelotonConfig;
             this.Configuration.Save();
         }
 

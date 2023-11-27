@@ -2,17 +2,16 @@ using Dalamud.Configuration;
 using Dalamud.Plugin;
 using System;
 
-namespace dontforgetthecard
+namespace dontforget
 {
     [Serializable]
     public class Configuration : IPluginConfiguration
     {
         public int Version { get; set; } = 0;
-
         public bool Astrologian { get; set; } = true;
         public bool Scholar { get; set; } = true;
         public bool Summoner { get; set; } = true;
-        public bool Peleton { get; set; } = true;
+        public bool Peloton { get; set; } = true;
 
         [NonSerialized]
         private DalamudPluginInterface? PluginInterface;

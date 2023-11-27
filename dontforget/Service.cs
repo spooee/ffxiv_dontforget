@@ -3,7 +3,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin.Services;
 using Dalamud.Game.ClientState.Objects;
 
-namespace dontforgetthecard
+namespace dontforget
 {
     internal class Service
     {
