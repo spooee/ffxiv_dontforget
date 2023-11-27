@@ -13,12 +13,12 @@ namespace dontforgetthecard
 {
     public sealed class Plugin : IDalamudPlugin
     {
-        public string Name => "Don't Forget the Card";
+        public string Name => "Don't Forget";
         private const string CommandName = "/dontforget";
         private DalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
         public Configuration Configuration { get; init; }
-        public WindowSystem WindowSystem = new("Don't Forget the Card");
+        public WindowSystem WindowSystem = new("Don't Forget");
         private ConfigWindow ConfigWindow { get; init; }
         private unsafe static ActionManager* AM;
         private uint drawCard = 3590;
@@ -49,9 +49,8 @@ namespace dontforgetthecard
             }
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
             this.PluginInterface.UiBuilder.Draw += DrawUI;
-            Service.DutyState.DutyStarted += onRespawn;
-            Service.DutyState.DutyRecommenced += onRespawn;
-            Service.
+            Service.DutyState.DutyStarted += onDuty;
+            Service.DutyState.DutyRecommenced += onDuty;
             Service.Framework.Update += onFrameworkUpdate;
         }
 
@@ -60,7 +59,7 @@ namespace dontforgetthecard
             AM = ActionManager.Instance();
         }
 
-        private unsafe void onRespawn(object? sender, ushort t)
+        private unsafe void onDuty(object? sender, ushort t)
         {
             bool actionPerformed = true;
             uint actionID = drawCard;
@@ -72,6 +71,7 @@ namespace dontforgetthecard
 
             if (classJobID == 33 && this.Configuration.Astrologian)
             {
+
                 actionID = drawCard;
                 actionPerformed = AM->UseAction(ActionType.Action, actionID);
             }
@@ -106,8 +106,8 @@ namespace dontforgetthecard
         {
             this.WindowSystem.RemoveAllWindows();
             this.CommandManager.RemoveHandler(CommandName);
-            Service.DutyState.DutyStarted -= onRespawn;
-            Service.DutyState.DutyRecommenced -= onRespawn;
+            Service.DutyState.DutyStarted -= onDuty;
+            Service.DutyState.DutyRecommenced -= onDuty;
             Service.Framework.Update -= onFrameworkUpdate;
         }
 

@@ -13,8 +13,4 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Windows\" />
-  </ItemGroup>
-
 </Project>

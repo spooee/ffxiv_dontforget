@@ -1,12 +1,13 @@
 {
   "Author": "spooee",
-  "Name": "Don't Forget the Card",
-  "Punchline": "Never forget to draw a card or summon a summon!",
-  "Description": "Automatically draws cards on duty reset as Astrologian, and summons carbuncle and fairy as Summoner and Scholar.",
-  "InternalName": "dontforgetthecard",
+  "Name": "Don't Forget",
+  "Punchline": "Never forget to draw a card, summon your stuff, or use peleton again.",
+  "Description": "At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peleton as Phys Ranged.",
+  "InternalName": "dontforget",
   "ApplicableVersion": "any",
   "Tags": [
     "autodraw",
-    "autosummon"
+    "autosummon",
+    "autopeleton"
   ]
 }

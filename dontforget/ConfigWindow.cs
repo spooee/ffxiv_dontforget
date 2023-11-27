@@ -10,11 +10,11 @@ public class ConfigWindow : Window, IDisposable
 {
     private Configuration Configuration;
     public ConfigWindow(Plugin plugin) : base(
-        "Don't Forget the Card",
+        "Don't Forget",
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(260, 170);
+        this.Size = new Vector2(270, 190);
         this.SizeCondition = ImGuiCond.Always;
         this.Configuration = plugin.Configuration;
     }
@@ -28,7 +28,7 @@ public class ConfigWindow : Window, IDisposable
         var summonerConfig = this.Configuration.Summoner;
         var peletonConfig = this.Configuration.Peleton;
 
-        ImGui.TextWrapped("Enable for jobs you want to not forget!");
+        ImGui.TextWrapped("Enable for jobs you don't want to forget");
         ImGui.Spacing();
 
         if (ImGui.Checkbox("Astrologian - Draw Card", ref astrologianConfig))
@@ -36,19 +36,22 @@ public class ConfigWindow : Window, IDisposable
             this.Configuration.Astrologian = astrologianConfig;
             this.Configuration.Save();
         }
+
+        if (ImGui.Checkbox("Phys Ranged - Auto Peleton", ref peletonConfig))
+        {
+            this.Configuration.Peleton = peletonConfig;
+            this.Configuration.Save();
+        }
+
         if (ImGui.Checkbox("Scholar - Summon Fairy", ref scholarConfig))
         {
             this.Configuration.Scholar = scholarConfig;
             this.Configuration.Save();
         }
+
         if (ImGui.Checkbox("Summoner - Summon Carbuncle", ref  summonerConfig))
         {
             this.Configuration.Summoner = summonerConfig;
-            this.Configuration.Save();
-        }
-        if (ImGui.Checkbox("Phys Ranged - Auto Peleton", ref peletonConfig))
-        {
-            this.Configuration.Peleton = peletonConfig;
             this.Configuration.Save();
         }
     }
