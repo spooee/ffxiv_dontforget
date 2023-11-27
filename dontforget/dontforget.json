@@ -11,7 +11,7 @@
     "LoadSync": false,
     "CanUnloadAsync": false,
     "LoadPriority": 0,
-    "IconUrl": "",
+    "IconUrl": "https://raw.githubusercontent.com/spooee/ffxiv_dontforget/master/icon.png",
     "Punchline": "Never forget to draw a card, summon your stuff, or use peleton again.",
     "AcceptsFeedback": false
 }
