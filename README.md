@@ -1,5 +1,5 @@
-## Don't forget the card
-Plugin that automatically draws a card for you as an astrologian. It can also automically summon your carbuncle and fairy as summoner and scholar.
+## Don't Forget
+At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peleton as Phys Ranged
 
 ## Installation
 - Type ```/xlsettings``` in chat
