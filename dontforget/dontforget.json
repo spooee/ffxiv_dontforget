@@ -1,0 +1,12 @@
+{
+  "Author": "spooee",
+  "Name": "Don't Forget the Card",
+  "Punchline": "Never forget to draw a card or summon a summon!",
+  "Description": "Automatically draws cards on duty reset as Astrologian, and summons carbuncle and fairy as Summoner and Scholar.",
+  "InternalName": "dontforgetthecard",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "autodraw",
+    "autosummon"
+  ]
+}
