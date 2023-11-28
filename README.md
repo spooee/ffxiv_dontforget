@@ -1,5 +1,5 @@
 ## Don't Forget
-At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peleton as Phys Ranged
+At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peloton as Phys Ranged
 
 ## Installation
 - Type ```/xlsettings``` in chat
