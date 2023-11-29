@@ -1,6 +1,7 @@
 ## Don't Forget
 At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peloton as Phys Ranged
 
+![Don't Forget](https://github.com/spooee/ffxiv_dontforget/blob/master/icon.png)
 ## Installation
 - Type ```/xlsettings``` in chat
 - Head to the "Experimental" tab
