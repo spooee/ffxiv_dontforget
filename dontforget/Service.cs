@@ -1,7 +1,5 @@
-using Dalamud.Game;
 using Dalamud.IoC;
 using Dalamud.Plugin.Services;
-using Dalamud.Game.ClientState.Objects;
 
 namespace dontforget
 {

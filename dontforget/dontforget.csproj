@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Dalamud.NET.Sdk/9.0.2">
   <Import Project="Dalamud.Plugin.Bootstrap.targets" />
 
   <PropertyGroup>
-    <Authors></Authors>
-    <Company></Company>
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
+    <TargetFramework>net8.0</TargetFramework>
     <Description>Plugin that automically draws cards and summons summons</Description>
-    <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <IsPackable>false</IsPackable>
+    <Configurations>Debug;ExportDebug;ExportRelease;Release</Configurations>
   </PropertyGroup>
 
 </Project>

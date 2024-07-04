@@ -6,7 +6,7 @@
     "Description": "At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peloton as Phys Ranged.",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/spooee/ffxiv_dontforget",
-    "DalamudApiLevel": 9,
+    "DalamudApiLevel": 10,
     "LoadRequiredState": 0,
     "LoadSync": false,
     "CanUnloadAsync": false,

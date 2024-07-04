@@ -8,15 +8,14 @@ namespace dontforget
     public class Configuration : IPluginConfiguration
     {
         public int Version { get; set; } = 0;
-        public bool Astrologian { get; set; } = true;
         public bool Scholar { get; set; } = true;
         public bool Summoner { get; set; } = true;
         public bool Peloton { get; set; } = true;
 
         [NonSerialized]
-        private DalamudPluginInterface? PluginInterface;
+        private IDalamudPluginInterface? PluginInterface;
 
-        public void Initialize(DalamudPluginInterface pluginInterface)
+        public void Initialize(IDalamudPluginInterface pluginInterface)
         {
             this.PluginInterface = pluginInterface;
         }

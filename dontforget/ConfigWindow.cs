@@ -1,7 +1,7 @@
-using System;
-using System.Numerics;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
+using System;
+using System.Numerics;
 
 namespace dontforget;
 
@@ -13,7 +13,7 @@ public class ConfigWindow : Window, IDisposable
         ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar |
         ImGuiWindowFlags.NoScrollWithMouse)
     {
-        this.Size = new Vector2(270, 180);
+        this.Size = new Vector2(270, 150);
         this.SizeCondition = ImGuiCond.Always;
         this.Configuration = plugin.Configuration;
     }
@@ -22,19 +22,12 @@ public class ConfigWindow : Window, IDisposable
 
     public override void Draw()
     {
-        var astrologianConfig = this.Configuration.Astrologian;
         var scholarConfig = this.Configuration.Scholar;
         var summonerConfig = this.Configuration.Summoner;
         var pelotonConfig = this.Configuration.Peloton;
 
         ImGui.TextWrapped("Enable for automation of these actions");
         ImGui.Spacing();
-
-        if (ImGui.Checkbox("Astrologian - Draw Card", ref astrologianConfig))
-        {
-            this.Configuration.Astrologian = astrologianConfig;
-            this.Configuration.Save();
-        }
 
         if (ImGui.Checkbox("Phys Ranged - Auto Peloton", ref pelotonConfig))
         {
@@ -48,7 +41,7 @@ public class ConfigWindow : Window, IDisposable
             this.Configuration.Save();
         }
 
-        if (ImGui.Checkbox("Summoner - Summon Carbuncle", ref  summonerConfig))
+        if (ImGui.Checkbox("Summoner - Summon Carbuncle", ref summonerConfig))
         {
             this.Configuration.Summoner = summonerConfig;
             this.Configuration.Save();

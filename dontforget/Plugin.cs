@@ -1,12 +1,11 @@
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.Command;
-using Dalamud.IoC;
-using Dalamud.Plugin;
 using Dalamud.Interface.Windowing;
+using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game;
-using Dalamud.Game.ClientState.Conditions;
-using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
+using System.Linq;
 
 namespace dontforget
 {
@@ -14,20 +13,19 @@ namespace dontforget
     {
         public string Name => "Don't Forget";
         private const string CommandName = "/dontforget";
-        private DalamudPluginInterface PluginInterface { get; init; }
+        private IDalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("Don't Forget");
         private ConfigWindow ConfigWindow { get; init; }
         private unsafe static ActionManager* AM;
-        private uint drawCard = 3590;
         private uint summonFairy = 17215;
         private uint summonCarbuncle = 25798;
         private uint peloton = 7557;
 
         public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] ICommandManager commandManager)
+            IDalamudPluginInterface pluginInterface,
+            ICommandManager commandManager)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
@@ -40,7 +38,7 @@ namespace dontforget
 
             this.CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
             {
-                HelpMessage = "Open the config window"
+                HelpMessage = "Open the config window!"
             });
 
             unsafe { LoadUnsafe(); }
@@ -60,19 +58,13 @@ namespace dontforget
         private unsafe void onDuty(object? sender, ushort t)
         {
             bool actionPerformed = true;
-            uint actionID = drawCard;
+            uint actionID = summonFairy;
 
             if (Service.ClientState == null || Service.ClientState.LocalPlayer == null || !Service.ClientState.IsLoggedIn) return;
 
             var classJobID = Service.ClientState.LocalPlayer.ClassJob.Id;
 
-            if (classJobID == 33 && this.Configuration.Astrologian)
-            {
-                actionID = drawCard;
-                actionPerformed = AM->UseAction(ActionType.Action, actionID);
-            }
-
-            else if (classJobID == 28 && this.Configuration.Scholar)
+            if (classJobID == 28 && this.Configuration.Scholar)
             {
                 actionID = summonFairy;
                 actionPerformed = AM->UseAction(ActionType.Action, actionID);
