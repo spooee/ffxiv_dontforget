@@ -3,7 +3,7 @@
     "Name": "Don't Forget'",
     "InternalName": "dontforget",
     "AssemblyVersion": "1.0.0.1",
-    "Description": "At the start of every duty and every pull thereafter, automatically draws cards as Astrologian, and summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peloton as Phys Ranged.",
+    "Description": "At the start of every duty and every pull thereafter, automatically summons carbuncle and fairy as Summoner and Scholar. Automatically uses Peloton as Phys Ranged.",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/spooee/ffxiv_dontforget",
     "DalamudApiLevel": 10,
@@ -12,6 +12,6 @@
     "CanUnloadAsync": false,
     "LoadPriority": 0,
     "IconUrl": "https://raw.githubusercontent.com/spooee/ffxiv_dontforget/master/icon.png",
-    "Punchline": "Never forget to draw a card, summon your stuff, or use peloton again.",
+    "Punchline": "Never forget to summon your stuff or use peloton again.",
     "AcceptsFeedback": false
 }
